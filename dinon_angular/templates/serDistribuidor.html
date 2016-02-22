@@ -1,0 +1,128 @@
+    <hr> 
+     <div class="container-fluid">
+        <div class="jumbotron">     
+              <div class="row">
+                <div class="col-md-12">
+                    <img src="../public/images/promo2.png"  alt="" class="col-xs-5 img-responsive ">
+                </div>
+              </div>
+          </div>
+      </div>
+      <hr>
+     <div class="container">
+ 
+      <div class="row">
+        <div class="panel panel-default">
+        	<div class="panel-body">
+                 <form name="formDistribuidor" id="formDistribuidor" novalidate>
+                  <div class="col-md-6">           
+                         
+                         <div class="form-group has-feedback" ng-class="{'has-success':( !formDistribuidor.rut.$error.required || !formDistribuidor.rut.$error.rutValido) && formDistribuidor.rut.$touched,'has-error':( formDistribuidor.rut.$error.required || formDistribuidor.rut.$error.rutValido) && formDistribuidor.rut.$touched}">
+                             <label  >Rut:</label>
+                             <input type="text" class="form-control" ng-rut name="rut" ng-model="datosDistribuidor.rut" placeholder="EJ: 11111111-1" required>
+                             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':( !formDistribuidor.rut.$error.required || !formDistribuidor.rut.$error.rutValido) && formDistribuidor.rut.$touched,'glyphicon-remove':( formDistribuidor.rut.$error.required || formDistribuidor.rut.$error.rutValido) && formDistribuidor.rut.$touched}"></span>
+                             <span ng-if="formDistribuidor.rut.$error.rutValido && formDistribuidor.rut.$touched" class="help-block">Rut Invalido EJ: 11111111-1</span> 
+                             <span ng-if="formDistribuidor.rut.$error.required && formDistribuidor.rut.$touched" class="help-block">Campo Rut Requerido</span> 
+                             
+                         </div>
+        
+                          
+                          <div class="form-group has-feedback" ng-class="{'has-success':!formDistribuidor.nombre.$error.required && formDistribuidor.nombre.$touched,'has-error':formDistribuidor.nombre.$error.required && formDistribuidor.nombre.$touched}">
+                             <label  >Nombre:</label>
+                             <input type="text" class="form-control" name="nombre" ng-model="datosDistribuidor.nombre" placeholder="Nombre Completo" required>
+                             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':!formDistribuidor.nombre.$error.required && formDistribuidor.nombre.$touched,'glyphicon-remove':formDistribuidor.nombre.$error.required && formDistribuidor.nombre.$touched}"></span>
+                             <span ng-if="formDistribuidor.nombre.$error.required && formDistribuidor.nombre.$touched" class="help-block">Campo Nombre Requerido</span> 
+                             
+                         </div>
+                          
+                          
+                              
+                          <div class="form-group has-feedback" ng-class="{'has-success':(!formDistribuidor.telefono.$error.required || !formDistribuidor.telefono.$error.minlength) && formDistribuidor.telefono.$touched,'has-error':(formDistribuidor.telefono.$error.required || formDistribuidor.telefono.$error.minlength || formDistribuidor.telefono.$error.number) && formDistribuidor.telefono.$touched}">
+                             <label  >Tel&eacutefono:</label>
+                             <input type="number" class="form-control" name="telefono" ng-model="datosDistribuidor.telefono" placeholder="Telefono o Celular" required minlength="6" maxlength="12" >
+                             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':(!formDistribuidor.telefono.$error.required || !formDistribuidor.telefono.$error.minlength || !formDistribuidor.telefono.$error.number) && formDistribuidor.telefono.$touched,'glyphicon-remove':(formDistribuidor.telefono.$error.required || formDistribuidor.telefono.$error.minlength || formDistribuidor.telefono.$error.number) && formDistribuidor.telefono.$touched}"></span>
+                             <span ng-if="formDistribuidor.telefono.$error.required && formDistribuidor.telefono.$touched" class="help-block">Campo Telefono Requerido</span> 
+                             <span ng-if="formDistribuidor.telefono.$error.minlength && formDistribuidor.telefono.$touched" class="help-block">Minimo 6 Numeros</span>   
+                             <span ng-if="formDistribuidor.telefono.$error.maxlength && formDistribuidor.telefono.$touched" class="help-block">Maximo 12 Numeros</span> 
+                              <span ng-if="formDistribuidor.telefono.$error.number && formDistribuidor.telefono.$touched" class="help-block">Solo Numeros</span> 
+                             
+                         </div>
+                          
+                                    
+                         <div class="form-group has-feedback" ng-class="{'has-success':(!formDistribuidor.email.$error.email || !formDistribuidor.email.$error.required) && formDistribuidor.email.$touched,'has-error':(formDistribuidor.email.$error.required || formDistribuidor.email.$error.email) && formDistribuidor.email.$touched}">
+                             <label  >Email:</label>
+                             <input type="email" class="form-control" name="email" ng-model="datosDistribuidor.email" placeholder="Ej: mail@electroventas.cl" required>
+                             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':(!formDistribuidor.email.$error.required || !formDistribuidor.email.$error.email) && formDistribuidor.email.$touched,'glyphicon-remove':(formDistribuidor.email.$error.required || formDistribuidor.email.$error.email) && formDistribuidor.email.$touched}"></span>
+                             <span ng-if="formDistribuidor.email.$error.required && formDistribuidor.email.$touched" class="help-block">Email Requerido</span> 
+                             <span ng-if="formDistribuidor.email.$error.email && formDistribuidor.email.$touched" class="help-block">Formato de email incorrecto</span> 
+                         </div>   
+                        
+                    
+                     <div class="form-group has-feedback" ng-class="{'has-success':(!formDistribuidor.empresa.$error.required ) && formDistribuidor.empresa.$touched,'has-error':(formDistribuidor.empresa.$error.required ) && formDistribuidor.empresa.$touched}">
+                             <label  >Empresa:</label>
+                             <input type="text" class="form-control" name="empresa" ng-model="datosDistribuidor.empresa" placeholder="Nombre Empresa" required>
+                             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':(!formDistribuidor.empresa.$error.required ) && formDistribuidor.empresa.$touched,'glyphicon-remove':(formDistribuidor.empresa.$error.required ) && formDistribuidor.empresa.$touched}"></span>
+                             <span ng-if="formDistribuidor.empresa.$error.required && formDistribuidor.empresa.$touched" class="help-block">Campo Empresa Requerido</span> 
+                             
+                      </div>   
+                         
+                        <div class="form-group has-feedback" ng-class="{'has-success':(!formDistribuidor.direccion.$error.required ) && formDistribuidor.direccion.$touched,'has-error':(formDistribuidor.direccion.$error.required ) && formDistribuidor.direccion.$touched}">
+                             <label  >Direcci&oacuten:</label>
+                             <input type="text" class="form-control" name="direccion" ng-model="datosDistribuidor.direccion" placeholder="Ingrese Direccion" required>
+                             <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':(!formDistribuidor.direccion.$error.required ) && formDistribuidor.direccion.$touched,'glyphicon-remove':(formDistribuidor.direccion.$error.required ) && formDistribuidor.direccion.$touched}"></span>
+                             <span ng-if="formDistribuidor.empresa.$error.required && formDistribuidor.empresa.$touched" class="help-block">Campo Direccion Requerido</span> 
+                             
+                      </div>   
+                           
+                  </div><!--COL-6 -->
+                  
+                  <div class="col-md-6">          
+                      <!-- Region  -->
+                      <div class="form-group has-feedback" ng-class="{'has-success':(!formDistribuidor.region.$error.required ) && formDistribuidor.region.$touched,'has-error':(formDistribuidor.region.$error.required ) && formDistribuidor.region.$touched}">
+                        <label class="control-label" >Regi&oacuten</label>
+                          <select ng-options="region.id as region.nombre for region in regiones" name="region" ng-model="datosDistribuidor.region" class="form-control" ng-change="cambiaProvincia(datosDistribuidor.region)" required>
+                               <option style="display:none" value="">Seleccione Region</option>
+                          </select> 
+                           <span ng-if="formDistribuidor.region.$error.required && formDistribuidor.region.$touched" class="help-block">Debe elegir una opci&oacuten. </span>
+                          
+                                   
+                      </div>
+                     <!-- Provincia  -->
+                       <div class="form-group has-feedback" ng-class="{'has-success':(!formDistribuidor.provincia.$error.required ) && formDistribuidor.provincia.$touched,'has-error':(formDistribuidor.provincia.$error.required ) && formDistribuidor.provincia.$touched}">
+                        <label class="control-label" >Provincia</label>
+                          <select ng-options="provincia.id as provincia.nombre for provincia in provincias" name="provincia" ng-model="datosDistribuidor.provincia" class="form-control" ng-change="cambiaComuna(datosDistribuidor.provincia)" required>
+                               <option style="display:none" value="">Seleccione Provincia</option>
+                          </select> 
+                             <span ng-if="formDistribuidor.provincia.$error.required && formDistribuidor.provincia.$touched" class="help-block">Debe elegir una opci&oacuten. </span>                
+                      </div>
+                      <!-- Comuna  -->
+                       <div class="form-group has-feedback" ng-class="{'has-success':(!formDistribuidor.comuna.$error.required ) && formDistribuidor.comuna.$touched,'has-error':(formDistribuidor.comuna.$error.required ) && formDistribuidor.comuna.$touched}">
+                        <label class="control-label" >Comuna</label>
+                          <select ng-options="comuna.id as comuna.nombre for comuna in comunas" name="comuna" ng-model="datosDistribuidor.comuna" class="form-control" required>
+                               <option style="display:none" value="">Seleccione comuna</option>
+                          </select>     
+                         <span ng-if="formDistribuidor.comuna.$error.required && formDistribuidor.comuna.$touched" class="help-block">Debe elegir una opci&oacuten. </span>            
+                      </div>
+                      
+                     <!-- ARCHIVO  -->
+                     <div class="form-group">
+                       
+                         <input type="file" name="file" uploader-model="file" class="btn btn-default btn-block">           
+                      </div>
+                   
+                   		
+                       <div vc-recaptcha key="publicKey" ></div><!-- CAPTCHA  -->	
+                            
+                    
+                    <hr>
+                    <input type="submit" class="btn btn-lg btn-block btn-success" ng-click="enviarFormulario(datosDistribuidor)" ng-disabled="formDistribuidor.$invalid" value="Enviar" >
+                       
+                  </div>
+                  
+                 </form>
+                 </div> <!-- PANEL BODY -->
+        	</div><!-- PANEL -->
+        </div>
+      </div>
+
+    <hr>

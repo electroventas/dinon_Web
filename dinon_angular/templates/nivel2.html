@@ -1,0 +1,72 @@
+ <link data-require="bootstrap-css@2.3.2" data-semver="2.3.2" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+<div class="row" >
+    <div class="container">
+    	<div id="filtros" >
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="container">
+                       <div class="row">
+                            <div class="panel panel-success col-md-3">
+                                <div class="panel-heading">
+                                    <h4>Filtros</h4>
+                                </div>
+                                
+                                <div class="panel-body">
+                                    <ul>
+                                        <li ng-repeat="fam2 in familias2"><a href="#/nivel3/{{fam2.seoslug}}">{{fam2.familia3}}</a></li>                                   
+                                    </ul>
+                                </div>                        
+                            </div>
+                            <div style="clear:both"></div>
+                            
+                            <div ng-if ="url == url_soportes "  class="panel panel-success col-md-3" ng-controller="filtroSoporte" ng-init = "vesa = 'x';">                                   <br>                     
+                               <div ng-if="validacion" >
+                                    <div class="alert alert-error">
+                                       <p>No se encontraron Productos</p>
+                                    </div>
+                                 </div>
+                                <div class="panel-heading">
+                                    <h4>Filtro Soportes</h4>
+                                </div>
+                                <div class="panel-body">
+                                 	<form name="soporteFiltro" novalidate>
+                                    	 Vesas                                  
+                                       <select ng-options="vesa.medida as vesa.medida for vesa in vesas" ng-model="vesa" required>
+                                           <option style="display:none" value="">Seleccione Vesa</option>
+                                        </select>
+                                        <br>Seleccionada: {{vesa}} <hr>
+                                        
+                                        Pulgadas<select ng-options="pulgada for pulgada in pulgadas" ng-model="pulgada">
+                                           <option style="display:none" value="">Seleccione Pulgadas</option>
+                                        </select>
+                                        
+                                        <br>Seleccionada: {{pulgada}} <br>
+                                        
+                                         <input type="submit" class="btn btn-default" ng-click="buscarSoportes(vesa,pulgada,url)" value="Buscar" >
+                                        
+                                    </form>                                   
+                                </div> 
+                            </div>
+                            
+                       </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="col-md-9">
+        				<h4>{{prodNivel2.length}} Restantes</h4>     <div align="right">Filtrar Productos:<input type="text" ng-model="buscarNivel2"> </div>  	
+                <div class="col-md-3 bx-product table-bordered" ng-repeat="prod2 in filteredProductos2 | filter : buscarNivel2" height="100px">
+                        <a href="#/ficha/{{prod2.seoslug}}"> 
+                            <img src="http://www.electroventas.cl/public/productos/productos/{{prod2.imagen}}" alt="" width="100">
+                           <h5>{{prod2.nombre}}</h5>  
+                            <p>ID del producto: {{prod2.codigo}}</p>
+                        </a>
+                </div>
+                
+                <div data-pagination="" data-num-pages="numPages" 
+      data-current-page="currentPage" data-max-size="maxSize"  
+      data-boundary-links="true"></div> 
+        </div>
+    </div>
+</div>
+<br>

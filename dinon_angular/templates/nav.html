@@ -1,0 +1,25 @@
+ <nav class="navbar navbar-default">
+      <div class="container" ng-controller = "navController"> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myDefaultNavbar1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar">}</span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a href="#/home"><img src="../public/images/Logo.png" alt="" height="50" id ="logo"></a> </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="myDefaultNavbar1">
+        <form class="navbar-form navbar-left" name="formulario" novalidate>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" ng-model="buscador">
+              
+            </div>
+           <input type="submit" class="btn btn-default" ng-click="busqueda(buscador)" value="Buscar" >
+            
+        </form>
+          <ul class="nav navbar-nav pull-right">
+            <li data-ng-repeat="fam in familias"><a href="#/familias/{{fam.seoslug}}">{{fam.nombre}}</a></li>            
+          </ul>
+          
+        </div>
+        <!-- /.navbar-collapse --> 
+      </div>
+      <!-- /.container-fluid --> 
+    </nav>

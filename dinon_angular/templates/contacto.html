@@ -1,0 +1,100 @@
+    <hr> 
+    <div class="container-fluid">
+           
+              <div class="row">
+                <div class="col-md-12">
+                    <img src="../public/archivos/contacto.png"  alt="" class="col-xs-5 img-responsive" style="width:100%">
+                </div>
+              </div>
+          
+      </div>
+      <hr>
+      <div class="container">
+        <div class="row">
+          <div class="panel panel-default">
+        	<div class="panel-body">
+         
+         <form name="formContacto" id="formContacto" novalidate>
+          <div class="col-md-6">           
+              <div class="form-group has-feedback" ng-class="{'has-success':!formContacto.nombre.$error.required && formContacto.nombre.$touched,'has-error':formContacto.nombre.$error.required && formContacto.nombre.$touched}">
+                    <label class="control-label" >Nombre:</label>
+                     <input type="text" class="form-control" name="nombre" ng-model="datosContacto.nombre" placeholder="Nombre Completo" required>
+                     <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':!formContacto.nombre.$error.required && formContacto.nombre.$touched,'glyphicon-remove':formContacto.nombre.$error.required && formContacto.nombre.$touched}"></span>
+                     <span ng-if="formContacto.nombre.$error.required && formContacto.nombre.$touched" class="help-block">Campo Nombre Requerido</span> 
+                             
+               </div>
+             
+                <div class="form-group has-feedback" ng-class="{'has-success':(!formContacto.telefono.$error.required || !formContacto.telefono.$error.minlength) && formContacto.telefono.$touched,'has-error':(formContacto.telefono.$error.required || formContacto.telefono.$error.minlength || formContacto.telefono.$error.number) && formContacto.telefono.$touched}">
+                  <label class="control-label"  >Tel&eacutefono:</label>
+                  <input type="number" class="form-control" name="telefono" ng-model="datosContacto.telefono" placeholder="Telefono o Celular" required minlength="6" maxlength="12" >
+                  <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':(!formContacto.telefono.$error.required || !formContacto.telefono.$error.minlength || !formContacto.telefono.$error.number) && formContacto.telefono.$touched,'glyphicon-remove':(formContacto.telefono.$error.required || formContacto.telefono.$error.minlength || formContacto.telefono.$error.number) && formContacto.telefono.$touched}"></span>
+                  <span ng-if="formContacto.telefono.$error.required && formContacto.telefono.$touched" class="help-block">Campo Telefono Requerido</span> 
+                  <span ng-if="formContacto.telefono.$error.minlength && formContacto.telefono.$touched" class="help-block">Minimo 6 Numeros</span>   
+                  <span ng-if="formContacto.telefono.$error.maxlength && formContacto.telefono.$touched" class="help-block">Maximo 12 Numeros</span> 
+                  <span ng-if="formContacto.telefono.$error.number && formContacto.telefono.$touched" class="help-block">Solo Numeros</span> 
+                             
+              </div>
+              
+               <div class="form-group has-feedback" ng-class="{'has-success':(!formContacto.email.$error.email || !formContacto.email.$error.required) && formContacto.email.$touched,'has-error':(formContacto.email.$error.required || formContacto.email.$error.email) && formContacto.email.$touched}">
+                  <label class="control-label" >Email:</label>
+                  <input type="email" class="form-control" name="email" ng-model="datosContacto.email" placeholder="Ej: mail@electroventas.cl" required>
+                  <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':(!formContacto.email.$error.required || !formContacto.email.$error.email) && formContacto.email.$touched,'glyphicon-remove':(formContacto.email.$error.required || formContacto.email.$error.email) && formContacto.email.$touched}"></span>
+                  <span ng-if="formContacto.email.$error.required && formContacto.email.$touched" class="help-block">Email Requerido</span> 
+                  <span ng-if="formContacto.email.$error.email && formContacto.email.$touched" class="help-block">Formato de email incorrecto</span> 
+               </div>   
+            
+             <div class="form-group has-feedback" ng-class="{'has-success':!formContacto.empresa.$error.required && formContacto.empresa.$touched,'has-error':formContacto.empresa.$error.required && formContacto.empresa.$touched}">
+                   <label class="control-label" >Empresa:</label>
+                   <input type="text" class="form-control" name="empresa" ng-model="datosContacto.empresa" placeholder="Nombre Empresa" required>
+                   <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':!formContacto.empresa.$error.required && formContacto.empresa.$touched,'glyphicon-remove':formContacto.empresa.$error.required && formContacto.empresa.$touched}"></span>
+                   <span ng-if="formContacto.empresa.$error.required && formContacto.empresa.$touched" class="help-block">Campo Empresa Requerido</span> 
+                             
+               </div>
+              <div class="form-group has-feedback" ng-class="{'has-success':!formContacto.direccion.$error.required && formContacto.direccion.$touched,'has-error':formContacto.direccion.$error.required && formContacto.direccion.$touched}">
+                   <label class="control-label">Direccion:</label>
+                   <input type="text" class="form-control" name="direccion" ng-model="datosContacto.direccion" placeholder="Nombre Direccion" required>
+                   <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':!formContacto.direccion.$error.required && formContacto.direccion.$touched,'glyphicon-remove':formContacto.direccion.$error.required && formContacto.direccion.$touched}"></span>
+                   <span ng-if="formContacto.direccion.$error.required && formContacto.direccion.$touched" class="help-block">Campo Direccion Requerido</span> 
+                             
+               </div>                
+          </div><!--COL-6 -->
+          
+          <div class="col-md-6">          
+             <div class="form-group has-feedback" ng-class="{'has-success':(!formContacto.regiones.$error.required ) && formContacto.region.$touched,'has-error':(formContacto.region.$error.required ) && formContacto.region.$touched}">
+                <label class="control-label" >Region</label>
+                  <select ng-options="region.region as region.region for region in regiones" name="region" ng-model="datosContacto.region" class="form-control" required>
+                       <option style="display:none" value="">Seleccione Region</option>
+                  </select>
+                   <span ng-if="formContacto.region.$error.required && formContacto.region.$touched" class="help-block">Debe elegir una opci&oacuten. </span>
+              </div>
+              
+              
+               <div class="form-group has-feedback" ng-class="{'has-success':!formContacto.asunto.$error.required && formContacto.asunto.$touched,'has-error':formContacto.asunto.$error.required && formContacto.asunto.$touched}">
+                   <label class="control-label" >Asunto:</label>
+                   <input type="text" class="form-control" name="asunto" ng-model="datosContacto.asunto" placeholder="Asunto del Mensaje" required>
+                   <span class="glyphicon form-control-feedback" ng-class="{'glyphicon-ok':!formContacto.asunto.$error.required && formContacto.asunto.$touched,'glyphicon-remove':formContacto.asunto.$error.required && formContacto.asunto.$touched}"></span>
+                   <span ng-if="formContacto.asunto.$error.required && formContacto.asunto.$touched" class="help-block">Campo Asunto Requerido</span> 
+                             
+               </div>
+               <div class="form-group has-feedback" ng-class="{'has-success':!formContacto.mensaje.$error.required && formContacto.mensaje.$touched,'has-error':formContacto.mensaje.$error.required && formContacto.mensaje.$touched}">
+                <label class="control-label" >Mensaje</label>
+                <div style="clear:both"></div>
+                  <textarea name="mensaje"  rows="5" style="width:100%" ng-model="datosContacto.mensaje" class="form-control" required>Ingrese su consulta..</textarea>
+              	  <span ng-if="formContacto.mensaje.$error.required && formContacto.mensaje.$touched" class="help-block">Campo Mensaje Requerido</span> 
+              </div>
+              
+           <div vc-recaptcha key="publicKey" ></div>
+            <hr>
+            <div class="row">
+            	 <input type="submit" class="btn btn-lg btn-block btn-success col-md-6" ng-click="submitForm(datosContacto)" value="Enviar" ng-disabled="formContacto.$invalid">
+            	 
+             </div>  
+          </div>
+          
+         </form>
+           </div> <!-- PANEL BODY -->
+          </div><!-- PANEL -->
+        </div>
+      </div>
+
+    <hr>

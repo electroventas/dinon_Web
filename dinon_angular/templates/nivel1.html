@@ -1,0 +1,33 @@
+ <link data-require="bootstrap-css@2.3.2" data-semver="2.3.2" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+<div class="row">
+    <div class="container">
+    	<div id="filtros" >
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="container">
+                        <h4 class="bx-titulo">Filtros</h4>
+                        <ul>
+                            <li ng-repeat="fam in familias2"><a href="#/nivel2/{{fam.seoslug}}">{{fam.familia2}}</a></li>
+                           
+                        </ul>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="col-md-9">
+        				<h4>{{prodNivel1.length}} Restantes</h4>     <div align="right">Filtrar Productos:<input type="text" ng-model="buscarNivel1"> </div>  	
+                <div class="col-md-3 bx-product table-bordered" ng-repeat="prod in filteredProductos | filter : buscarNivel1" height="100px">
+                        <a href="#/ficha/{{prod.seoslug}}"> 
+                            <img src="http://www.electroventas.cl/public/productos/productos/{{prod.imagen}}" alt="" width="100">
+                           <h5>{{prod.nombre}}</h5>  
+                            <p>ID del producto: {{prod.codigo}}</p>
+                        </a>
+                </div>
+                
+                <div data-pagination="" data-num-pages="numPages" 
+      data-current-page="currentPage" data-max-size="maxSize"  
+      data-boundary-links="true"></div> 
+        </div>
+    </div>
+</div>
+<br>
