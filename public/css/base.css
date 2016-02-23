@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+.bg-negro{
+	background:#333333;
+	color:#ffffff;
+	padding:10px 0;
+	line-height:30px;	
+	}
+.M2 {
+    margin: 5px 18px;
+    padding: 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.menu2 {
+    text-align: center;
+    margin-top: -40px;
+    box-shadow: 0px 2px 6px #4C4C4C;
+    background: #42860F;
+    position: absolute;
+	color:#fff;
+}
+.menu2_intro {
+    text-align: center;
+    box-shadow: 0px 2px 6px #4C4C4C;
+    background: #42860F;
+	color:#fff;
+}
+.bx-product img, .bx-product h4, .bx-product p{
+	float:left;
+	}
+div#myDefaultNavbar1 {
+    position: inherit;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
